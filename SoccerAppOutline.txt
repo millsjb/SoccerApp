@@ -1,0 +1,33 @@
+soccer app (Fixture Predictor):
+
+League standing predictor (competition)
+-allow user to select the league standings then compare their selection with the actual weekly standings. (Long game)
+-allow user to select the weekly fixtures for a given league and then compare their selection with the actual weekly standings. (short game)
+	Scoring is as follows:
+	-3 points for correct prediction with correct score
+	-1 point for correct prediction with incorrect score
+	-0 points for incorrect prediction
+
+Info shown to user to help witht their predictions:
+-Squad value comparison amongst teams in a given league. Calculate the disparity amongst the top teams in the league and the bottom teams (top 4-6 vs rest).
+
+-show fixtures for team. 
+	i.e. upcoming and past matches with results for past matches.
+
+-show league standings
+
+-show weekly match results (given a league, year)
+
+
+For implementation:
+
+Info needed from api (links to hit)
+-Team (/v1/competitions/{id}/teams) get all info about teams in a given league
+	Use this for team info, squad value and crest emblem for ui (later)
+-League Table (/v1/competitions/{id}/leagueTable) get info on current standings in a given league
+	Use this to set and update league table info 
+-Fixture (/v1/competitions/{id}/fixtures) get info on fixtures for a given competition (year and league)
+	Use this to update fixtures info and calculate weekly fixtures competition results (predicted results vs. actual results)
+-Fixture (/v1/teams/{id}/fixtures/) get all fixtures for a given team
+	Use this to provide info on past and upcoming matches for a specified team
+
