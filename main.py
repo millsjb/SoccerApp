@@ -1,32 +1,32 @@
 # This class will house the basic underlying logic for the application.
 
-import constants
+import constants, getTeam
 
-print("Hello and welcome to millsjb Soccer Application")
+print("Hello and welcome to Fixture Predictor!! The soccer app that puts your soccer knowledge to the test")
+print("This app creates competition out of competition by allowing you, the user, to predict both weekly fixture outcomes " +
+      "and overall league standings and then compares your guesses against the actual results.")
 print("")
+print("(In future) You can challenge your friends either on a weekly basis, or set up leagues to determine an overall champion.")
 
-league = raw_input("What league would you like to select?  ")
+league = None
+team = None
 
-team = raw_input("What team would you like to see the most recent info for?  ")
+while (league is None or league == ""):
+    league = input("What league would you like to select?  ")
 
-if (team is None and team != ""):
+while (team is None or team == ""):
+    team = input("What team would you like to see the most recent info for?  ")
+
+if (team is not None and team != ""):
     print("Thanks, please wait for " + team + "'s info.")
-    
-# selected_league = null #used for constants file TEMP
-# 
-# for l in constants.leagues:
-#     if(l.contains(league)):
-#         selected_league = l
-#         
-# print(selected_league)
 
-
-
+#retrieve team id from constants file
 if("bundesliga" in league):
     team = constants.bundesliga_teams[team]
 if("premier" in league):
     team = constants.premier_league_teams[team]
     
+print("team id: " + team)
     
-# now call the function to build the url and make the appropriate api call
-response = getTeamInfo(team)
+# now call the function to build the url and make the appropriate api call using the team id from above
+response = getTeam.getTeamInfo(team)
