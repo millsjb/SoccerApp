@@ -52,5 +52,12 @@ elif(answer == "league standings"):
         
 else:
     print("That option is not supported at this time.")
+    
+while (answer is None or answer == ""):
+    answer = input("Would you like to see the squad disparity? [Yes|No]")
+    
+if (answer == "Yes"):
+    #calculate squad disparity here
 
 # done for now
+#test

@@ -17,7 +17,7 @@ def executeJson (response, parse):
         else:
             return jData
     else:
-        print("response failed: " + response)
+        print("response failed: " + str(response))
                
 
 def parseJsonResponse (response):

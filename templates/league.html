@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}League Page{% endblock %}
+{% block content %}
+<script type="text/javascript">
+   	var flaskVar = {
+		league: "{{league}}",
+		table: {{table|safe}}
+	};
+</script>
+
+<div id='main-container'>
+	
+	<select id='league-dropdown'>
+		<option value=''>Choose a league..</option>
+	   	<option value='Premier'>Premier</option>
+	   	<option value='Bundesliga'>Bundesliga</option>
+	   	<option value='Serie A'>Serie A</option>
+	   	<option value='Primera'>Primera</option>
+	</select>
+	
+   	<h1 id='league-header'></h1>
+   	    	
+   	<table id='home-table'></table>
+   	
+	<div id='league-background-img'></div>
+</div>
+			
+    <script src="{{url_for('static', filename='base.js')}}"></script>
+    <script src="{{url_for('static', filename='league.js')}}"></script>
+{% endblock %}

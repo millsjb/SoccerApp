@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<script source="js/index.js"></script>
+<h1>Hello {{ name }}!</h1>
+<p>
+  <input type="text" size="5" name="a"> +
+  <input type="text" size="5" name="b"> =
+  <span id="result">?</span>
+<p><a href=# id="calculate">calculate server side</a>
+{% endblock %}

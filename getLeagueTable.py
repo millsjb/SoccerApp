@@ -1,4 +1,4 @@
-# This class will house the api call to retrieve both fixture and general data about a given team.
+# This class will house the api call to retrieve 
 import requests
 import json
 import jsonResponse
@@ -8,7 +8,7 @@ def getLeagueTableInfo (id):
     url = "http://api.football-data.org/v1/competitions/";
     url += id + "/leagueTable";
     
-    print("In getLeaguetable")
+    print(url)
     
     return formatLeagueTableInfoResponse(jsonResponse.executeJson(requests.get(url), False))
         
