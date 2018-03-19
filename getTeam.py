@@ -11,11 +11,18 @@ def getTeamInfo (team):
     
     return formatTeamInfoResponse(jsonResponse.executeJson(requests.get(url), True))
 
+def getTeamPlayers (team):
+    url = "http://api.football-data.org/v1/teams/" + team + "/players";
+    
+    print("url: "+ url)
+    
+    return formatTeamInfoResponse(jsonResponse.executeJson(requests.get(url), True))
+
 def formatTeamInfoResponse (response):
-    print ("formatTeamInfoResponse")
     formattedResponse = {}
     for key in response:
-        formattedResponse[key] = response[key]
+        if(key) == "players":
+            formattedResponse = response[key]
         
     return formattedResponse
         

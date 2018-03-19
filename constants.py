@@ -1,6 +1,9 @@
 # This class will house the mappings and constants for names and other soccer specific data.
     
-leagues = ["bundesliga_teams", "premier_league_teams"];
+leagues = ["bundesliga_teams", "premier_league_teams"]
+
+# mapping for team abreviations
+leagueAbrv = {"Premier": "PL", "Bundesliga": "BL1", "Primera": "PD"}
 
 bundesliga_teams = {"FC Koln" : "1", "TSG 1899 Hoffenheim" : "2", "Bayer Leverkusen" : "3", "Borussia Dortmund" : "4", 
     "FC Bayern Munchen" : "5", "FC Schalke 04" : "6", "Hamburger SV" : "7", "Hannover 96" : "8", 

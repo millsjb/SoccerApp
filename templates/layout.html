@@ -3,14 +3,25 @@
 <html>
   <head>
     {% block head %}
+    <link rel= "stylesheet" type= "text/css" href="{{url_for('static', filename='styles/main.css')}}">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
-    <script src="{{url_for('static', filename='underscore-min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/underscore-min.js')}}"></script>
     <title>{% block title %}{% endblock %} - SoccerApp</title>
     {% endblock %}
   </head>
   <body>
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="content">
+    <ul>
+		<li><a class="active" href="/soccerapp/">Home</a></li>
+		<li><a href="/soccerapp/league/">League</a></li>
+		<li><a href="/soccerapp/team">Team</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
+    {% block content %}
+    {% endblock %}
+    </div>
+    
     <div id="footer">
       {% block footer %}
       &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>.

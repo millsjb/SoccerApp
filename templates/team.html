@@ -3,8 +3,8 @@
 {% block content %}
 <script type="text/javascript">
    	var flaskVar = {
-		league: "{{league}}",
-		table: {{table|safe}}
+		teamName: "{{teamName}}",
+		players: {{players|safe}}
 	};
 </script>
 
@@ -18,13 +18,29 @@
 	   	<option value='Primera'>Primera</option>
 	</select>
 	
-   	<h1 id='league-header'></h1>
-   	    	
-   	<table id='league-table'></table>
+	<select id='team-dropdown'>
+		<option value=''>Choose a team..</option>
+	</select>
+	
+   	<h1 id='team-header'></h1>
    	
-	<div id='league-background-img'></div>
+   	<table id='goalkeepers'></table>
+   	
+   	<br><br>
+   	    	
+   	<table id='defenders'></table>
+   	
+   	<br><br>
+   	
+   	<table id='midfielders'></table>
+   	
+   	<br><br>
+   	
+   	<table id='forwards'></table>
+   	
+	<div id='team-background-img'></div>
 </div>
 			
     <script src="{{url_for('static', filename='js/base.js')}}"></script>
-    <script src="{{url_for('static', filename='js/league.js')}}"></script>
+    <script src="{{url_for('static', filename='js/team.js')}}"></script>
 {% endblock %}

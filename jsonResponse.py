@@ -23,17 +23,32 @@ def executeJson (response, parse):
 def parseJsonResponse (response):
     resultsList =  {}
     
-    for key in response:
-            if (type(response[key]) is str):
-                print (key + ":" + response[key])
-                resultsList[key] = response[key]
-            elif (type(response[key]) is int):
-                print (key + ":" + str(response[key]))
-                resultsList[key] = response[key]
-            elif (type(response[key]) is dict):
-                for dictKey in response[key]:
-                    for innerDictKey in response[key][dictKey]:
-                        print (dictKey + ":" + response[key][dictKey][innerDictKey])
-                        resultsList[dictKey] = response[key][dictKey][innerDictKey]
-                        
+    for data in response:
+        print("response[data]: " + str(data))
+        
+        if(type(data) is dict):
+            for dictKey in data:
+                if(type(data[dictKey]) is str):
+                    resultsList[dictKey] = response[data][dictKey]
+                elif(type(data[dictKey]) is int):
+                    resultsList[dictKey] = response[data][dictKey]
+                elif(type(data[dictKey]) is dict):
+                    for innerDictKey in data[dictKey]:
+                        for innerDictKey in response[data][dictKey]:
+                            resultsList[dictKey] = response[data][dictKey][innerDictKey]
+        else:
+            if(type(response[data]) is str):
+                resultsList[data] = response[data]
+            elif(type(response[data]) is int):
+                resultsList[data] = response[data]
+            elif(type(response[data]) is dict):
+                for dictKey in response[data]:
+                    for innerDictKey in response[data][dictKey]:
+                        resultsList[dictKey] = response[data][dictKey][innerDictKey]
+            elif(type(response[data]) is list):
+                for innerVal in response[data]:
+                    if(type(innerVal) is dict):
+                        for dictKey in innerVal:
+                            resultsList[dictKey] = innerVal[dictKey]
+                    
     return resultsList

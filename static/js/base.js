@@ -1,23 +1,6 @@
-$(document).ready(function() {
-	showTable(flaskVar.table);
-});
-
-if(isBlank(flaskVar.league)) {
-	$("h1").hide();
+function isBlank(val) {
+	return (val == null || val == "" || val == "None");
 }
-
-if(!isBlank(flaskVar.league)) {
-	$("#league-header").text(flaskVar.league);
-}
-
-$("#league-dropdown").change(function(t) {
-	var dropdownVal = $("#league-dropdown").val();
-	$("#league-header").text(dropdownVal);
-	
-	$.get("/soccerapp/get_table/" + dropdownVal, function(data, success) {
-		showTable(JSON.parse(data))
-	});
-});
 
 function showTable(table) {
 	htmlRow = "<tr><th>Position</th><th>Club</th><th>Played</th>" +
@@ -35,9 +18,5 @@ function showTable(table) {
 	htmlRow += "</tr>";
 	});
 	
-	$("#home-table").html(htmlRow);
+	$("#league-table").html(htmlRow);
 }
-
-
-
-
